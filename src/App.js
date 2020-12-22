@@ -6,7 +6,9 @@ import {
     Button,
     Icon,
     Grid,
-    Container
+    Container,
+    Form,
+    Segment
 } from 'semantic-ui-react'
 
 
@@ -36,20 +38,29 @@ function App() {
                 <Grid.Column>
                     <Container textAlign='center'>
                         <Header as='h1'>To-Do List</Header>
-                        <Input
-                            icon='tags'
-                            type="text"
-                            value={input}
-                            onChange={(event) => { setInput(event.target.value) }}
-                            iconPosition='left'
-                            placeholder='Enter your to-do list'
-                        />
-                        <Button animated='vertical' onClick={addItem}>
-                            <Button.Content hidden>Add</Button.Content>
-                            <Button.Content visible>
-                                <Icon name='plus' />
-                            </Button.Content>
-                        </Button>
+                        <Segment>
+                            <Form>
+                                <Form.Group>
+                                    <Form.Field width='15'>
+                                    <Input
+                                        icon='tags'
+                                        type="text"
+                                        value={input}
+                                        onChange={(event) => { setInput(event.target.value) }}
+                                        iconPosition='left'
+                                        placeholder='Enter your to-do list'
+                                        width='12'
+                                    />
+                                    </Form.Field>
+                                    <Button type='submit' animated='vertical' onClick={addItem}>
+                                        <Button.Content hidden>Add</Button.Content>
+                                        <Button.Content visible>
+                                            <Icon name='plus' />
+                                        </Button.Content>
+                                    </Button>
+                                </Form.Group>
+                            </Form>
+                        </Segment>
                     </Container>
                 </Grid.Column>
             </Grid>
