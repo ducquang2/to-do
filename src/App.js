@@ -8,7 +8,8 @@ import {
     Grid,
     Container,
     Form,
-    Segment
+    Segment,
+    Checkbox
 } from 'semantic-ui-react'
 
 
@@ -42,15 +43,15 @@ function App() {
                             <Form>
                                 <Form.Group>
                                     <Form.Field width='15'>
-                                    <Input
-                                        icon='tags'
-                                        type="text"
-                                        value={input}
-                                        onChange={(event) => { setInput(event.target.value) }}
-                                        iconPosition='left'
-                                        placeholder='Enter your to-do list'
-                                        width='12'
-                                    />
+                                        <Input
+                                            icon='tags'
+                                            type="text"
+                                            value={input}
+                                            onChange={(event) => { setInput(event.target.value) }}
+                                            iconPosition='left'
+                                            placeholder='Enter your to-do list'
+                                            width='12'
+                                        />
                                     </Form.Field>
                                     <Button type='submit' animated='vertical' onClick={addItem}>
                                         <Button.Content hidden>Add</Button.Content>
@@ -79,12 +80,18 @@ function App() {
             <div className="items">
                 <ul>
                     {items.map((item, index) => (
-                        <TodoList
-                            key={index}
-                            id={index}
-                            item={item}
-                            onCheck={removeItem}
-                        />
+                        <Grid centered columns={2}>
+                            <Grid.Column>
+                                <Container textAlign='center'>
+                                    <TodoList
+                                        key={index}
+                                        id={index}
+                                        item={item}
+                                        onCheck={removeItem}
+                                    />
+                                </Container>
+                            </Grid.Column>
+                        </Grid>
                     ))}
                 </ul>
             </div>
