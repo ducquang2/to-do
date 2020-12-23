@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Grid, Container, Button } from 'semantic-ui-react'
+import { List, Button } from 'semantic-ui-react'
 
 function TodoList({ id, item, onCheck }) {
 
