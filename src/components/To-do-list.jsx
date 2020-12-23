@@ -2,13 +2,7 @@ import React from "react";
 import { List, Grid, Container, Button } from 'semantic-ui-react'
 
 function TodoList({ id, item, onCheck }) {
-    function removeItem(id) {
-        setItems(prevData => {
-            return prevData.filter((item, index) => {
-                return index !== id;
-            })
-        });
-    }
+
     return (
         <List divided relaxed>
             <List.Item onClick={() => { onCheck(id) }}>
@@ -18,7 +12,7 @@ function TodoList({ id, item, onCheck }) {
                         {item}
                     </List.Header>
                     {/* <List.Description as='a'>Updated 10 mins ago</List.Description> */}
-                    <Button onClick={removeItem}>Delete</Button>
+                    <Button>Delete</Button>
                 </List.Content>
             </List.Item>
         </List>
